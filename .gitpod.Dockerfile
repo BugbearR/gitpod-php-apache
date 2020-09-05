@@ -23,7 +23,9 @@ COPY common/render_template.sh ${X_TMP}/render_template.sh
 COPY xdebug/99-xdebug.ini.tmpl ${X_TMP}/99-xdebug.ini.tmpl
 
 #    && sudo apt-get install -y apache2 mysql-server php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-dev \
- 
+
+RUN env >/workspace/env.txt 
+
 RUN apt-get update -q \
     && apt-get install -y php-dev \
     && cd ${X_TMP} \
@@ -35,8 +37,8 @@ RUN apt-get update -q \
     && make \
     && make install \
     && cd ${X_TMP} \
-    && X_PORT=${X_CLI_DEBUG_PORT} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_CLI_CONF_D}/99-xdebug.ini \
-    && X_PORT=${X_APACHE2_DEBUG_PORT} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_APACHE2_CONF_D}/99-xdebug.ini \
+    && X_PORT=${X_CLI_DEBUG_PORT} X_PHP_EXT_DIR=${X_PHP_EXT_DIR} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_CLI_CONF_D}/99-xdebug.ini \
+    && X_PORT=${X_APACHE2_DEBUG_PORT} X_PHP_EXT_DIR=${X_PHP_EXT_DIR} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_APACHE2_CONF_D}/99-xdebug.ini \
     && addgroup gitpod www-data \
     && apt-get clean \
     && rm -rf /var/cache/apt/* /var/lib/apt/lists/* ${X_TMP}/*
