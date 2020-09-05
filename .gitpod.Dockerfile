@@ -21,6 +21,7 @@ WORKDIR ${X_TMP}
 
 COPY common/render_template.sh ${X_TMP}/render_template.sh
 COPY xdebug/99-xdebug.ini.tmpl ${X_TMP}/99-xdebug.ini.tmpl
+COPY phpmyadmin/apache.allgranted.conf ${X_TMP}/apache.allgranted.conf
 
 #    && sudo apt-get install -y apache2 mysql-server php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-dev \
 
@@ -38,6 +39,9 @@ RUN apt-get update -q \
     && cd ${X_TMP} \
     && X_PORT=${X_CLI_DEBUG_PORT} X_PHP_EXT_DIR=${X_PHP_EXT_DIR} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_CLI_CONF_D}/99-xdebug.ini \
     && X_PORT=${X_APACHE2_DEBUG_PORT} X_PHP_EXT_DIR=${X_PHP_EXT_DIR} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_APACHE2_CONF_D}/99-xdebug.ini \
+    && cp apache.phpmiadmin.conf /etc/phpmyadmin \
+    && ln -s /etc/phpmyadmin/apache.conf /etc/apache/conf-enabled/phpmyadmin.conf \
+    && ln -s /etc/phpmyadmin/apache.allgranted.conf /etc/apache/conf-enabled/phpadmin.allgranted.conf \
     && addgroup gitpod www-data \
     && apt-get clean \
     && rm -rf /var/cache/apt/* /var/lib/apt/lists/* ${X_TMP}/*
