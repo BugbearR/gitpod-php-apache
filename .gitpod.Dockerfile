@@ -25,7 +25,8 @@ COPY xdebug/99-xdebug.ini.tmpl ${X_TMP}/99-xdebug.ini.tmpl
 #    && sudo apt-get install -y apache2 mysql-server php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-dev \
 
 RUN apt-get update -q \
-    && apt-get install -y php-dev phpmyadmin \
+    && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get install -yq php-dev phpmyadmin \
     && cd ${X_TMP} \
     && curl -L http://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz -o xdebug-${XDEBUG_VERSION}.tgz \
     && tar xf xdebug-${XDEBUG_VERSION}.tgz \
