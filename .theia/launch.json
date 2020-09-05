@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "Web stop on entry",
+      "type": "php",
+      "request": "launch",
+      "port": 9000,
+      "stopOnEntry": true
+    },
+    {
+      "name": "Web non stop",
+      "type": "php",
+      "request": "launch",
+      "port": 9000,
+      "stopOnEntry": false
+    },
+    {
+      "type": "php",
+      "name": "Program sum",
+      "request": "launch",
+      "port": 9001,
+      "stopOnEntry": true,
+      "program": "${workspaceRoot}/sample/sum.php",
+      "cwd": "${workspaceRoot}",
+      "externalConsole": false
+    }
+  ]
+}
