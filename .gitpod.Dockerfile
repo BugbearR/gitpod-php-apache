@@ -33,8 +33,8 @@ RUN sudo apt-get update -q \
     && make \
     && make install \
     && cd ${X_TMP} \
-    && X_PORT=${X_CLI_DEBUG_PORT} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_CLI_CONF_D}99-xdebug.ini \
-    && X_PORT=${X_APACHE2_DEBUG_PORT} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_APACHE2_CONF_D}99-xdebug.ini \
+    && X_PORT=${X_CLI_DEBUG_PORT} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_CLI_CONF_D}/99-xdebug.ini \
+    && X_PORT=${X_APACHE2_DEBUG_PORT} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_APACHE2_CONF_D}/99-xdebug.ini \
     && addgroup gitpod www-data \
     && apt-get clean \
     && rm -rf /var/cache/apt/* /var/lib/apt/lists/* ${X_TMP}
