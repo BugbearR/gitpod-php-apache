@@ -40,8 +40,8 @@ RUN apt-get update -q \
     && X_PORT=${X_CLI_DEBUG_PORT} X_PHP_EXT_DIR=${X_PHP_EXT_DIR} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_CLI_CONF_D}/99-xdebug.ini \
     && X_PORT=${X_APACHE2_DEBUG_PORT} X_PHP_EXT_DIR=${X_PHP_EXT_DIR} sh ./render_template.sh 99-xdebug.ini.tmpl >${X_PHP_APACHE2_CONF_D}/99-xdebug.ini \
     && cp apache.allgranted.conf /etc/phpmyadmin \
-    && ln -s /etc/phpmyadmin/apache.conf /etc/apache/conf-enabled/phpmyadmin.conf \
-    && ln -s /etc/phpmyadmin/apache.allgranted.conf /etc/apache/conf-enabled/phpadmin.allgranted.conf \
+    && ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf \
+    && ln -s /etc/phpmyadmin/apache.allgranted.conf /etc/apache2/conf-enabled/phpadmin.allgranted.conf \
     && addgroup gitpod www-data \
     && apt-get clean \
     && rm -rf /var/cache/apt/* /var/lib/apt/lists/* ${X_TMP}/*
