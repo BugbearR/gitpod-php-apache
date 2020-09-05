@@ -24,7 +24,7 @@ COPY xdebug/99-xdebug.ini.tmpl ${X_TMP}/99-xdebug.ini.tmpl
 
 #    && sudo apt-get install -y apache2 mysql-server php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-dev \
 
-RUN env >/workspace/env.txt 
+RUN env >/workspace/gitpod-php-apache/env.txt 
 
 RUN apt-get update -q \
     && apt-get install -y php-dev \
