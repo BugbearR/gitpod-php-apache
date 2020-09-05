@@ -1,5 +1,6 @@
 image:
   file: .gitpod.Dockerfile
+  context: mycontext
 
 ports:
   - port: 9000
