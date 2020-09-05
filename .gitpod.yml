@@ -3,7 +3,13 @@ image:
   context: mycontext
 
 ports:
+  - port: 8001
+    onOpen: open-preview
   - port: 9000
+    onOpen: ignore
+  - port: 9001
+    onOpen: ignore
+  - port: 3306
     onOpen: ignore
 
 tasks:
