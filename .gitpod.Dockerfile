@@ -23,7 +23,6 @@ COPY xdebug/99-xdebug.ini.tmpl ${X_TMP}
  
 RUN sudo apt-get update -q \
     && sudo apt-get install -y php-dev \
-    && mkdir ${X_TMP} \
     && cd ${X_TMP} \
     && curl -L http://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz -o xdebug-${XDEBUG_VERSION}.tgz \
     && tar xf xdebug-${XDEBUG_VERSION}.tgz \
