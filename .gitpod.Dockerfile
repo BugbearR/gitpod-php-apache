@@ -16,6 +16,8 @@ ENV X_APACHE2_DEBUG_PORT=9000
 #    && export X_PHP_INI_CONFD=$(php --ini | grep 'Scan for additional .ini files in: ' | sed -e 's/^[^:]*: //') \
 #    && export X_PHP_LIB=$(php -r "echo ini_get('extension_dir');") \
 
+WORKDIR ${X_TMP}
+
 COPY common/render_template.sh ${X_TMP}
 COPY xdebug/99-xdebug.ini.tmpl ${X_TMP}
 
