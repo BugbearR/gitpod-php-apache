@@ -10,8 +10,8 @@ ENV XDEBUG_VERSION=3.1.2
 ENV X_PHP_EXT_DIR=/usr/lib/php/20200930
 ENV X_PHP_CLI_CONF_D=/etc/php/8.0/cli/conf.d
 ENV X_PHP_APACHE2_CONF_D=/etc/php/8.0/apache2/conf.d
-ENV X_CLI_DEBUG_PORT=9001
-ENV X_APACHE2_DEBUG_PORT=9000
+ENV X_CLI_DEBUG_PORT=9004
+ENV X_APACHE2_DEBUG_PORT=9003
 
 #    && export X_PHP_INI_CONFD=$(php --ini | grep 'Scan for additional .ini files in: ' | sed -e 's/^[^:]*: //') \
 #    && export X_PHP_LIB=$(php -r "echo ini_get('extension_dir');") \

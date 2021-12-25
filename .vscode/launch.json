@@ -6,21 +6,21 @@
       "name": "Web stop on entry",
       "type": "php",
       "request": "launch",
-      "port": 9000,
+      "port": 9003,
       "stopOnEntry": true
     },
     {
       "name": "Web non stop",
       "type": "php",
       "request": "launch",
-      "port": 9000,
+      "port": 9003,
       "stopOnEntry": false
     },
     {
       "type": "php",
       "name": "Program sum",
       "request": "launch",
-      "port": 9001,
+      "port": 9004,
       "stopOnEntry": true,
       "program": "${workspaceRoot}/sample/sum.php",
       "cwd": "${workspaceRoot}",
