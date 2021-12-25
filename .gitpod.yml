@@ -5,9 +5,9 @@ image:
 ports:
   - port: 8001
     onOpen: open-preview
-  - port: 9000
+  - port: 9003
     onOpen: ignore
-  - port: 9001
+  - port: 9004
     onOpen: ignore
   - port: 3306
     onOpen: ignore
